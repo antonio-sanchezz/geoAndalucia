@@ -38,11 +38,11 @@ function loginCheck() {
 function cerrarSesion() {
     session_start();
 
-    if (isset($_SESSION['rol'])) {
+    if (isset($_SESSION['username'])) {
         session_unset();
         session_destroy();
-        header("Location: ?controller=usuarios&action=formLogin");
     }
+    header("Location: ?controller=usuarios&action=formLogin");
 }
 
 ?>
