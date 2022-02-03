@@ -1,4 +1,5 @@
 CREATE DATABASE geoandalucia;
+USE geoandalucia;
 
 CREATE TABLE usuarios (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
@@ -12,9 +13,10 @@ CREATE TABLE ubicaciones (
     ciudad VARCHAR(50) NOT NULL,
     pxCoords VARCHAR(50) NOT NULL,
     googleCoords VARCHAR(250) NOT NULL
-)
+);
 
 CREATE TABLE puntuaciones (
     idUsuario INT NOT NULL,
-    puntuacion INT
+    puntuacion INT,
+    FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
 );
