@@ -27,6 +27,31 @@ function formLogin() {
     include './views/loginForm.php';
 }
 
+/**
+ * Generamos el formulario que nos permite registrarnos.
+ */
+function formRegister() {
+
+    // Comprobamos si el usuario tiene ya una sesión iniciada.
+    if (isset($_SESSION['username'])) 
+    {
+        header("Location: ?controller=juego&action=dashBoard");
+    }
+
+    // Obtenemos el mensaje de error en caso de que exista y lo mostramos.
+    if (isset($_GET['error'])) {
+        $error = $_GET['error'];
+    } else {
+        $error = "";
+    }
+
+    // Se incluye el modelo.
+    require './models/usuariosModel.php';
+    
+    // Se incluye la vista para cargar el formulario
+    include './views/registerForm.php';
+}
+
 
 /**
  * Comprobamos que el usuario y la contraseña introducidas coinciden con algún usuario.
