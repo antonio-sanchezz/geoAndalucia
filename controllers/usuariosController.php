@@ -70,7 +70,8 @@ function loginCheck() {
     require './models/usuariosModel.php';
 
     if (login($_POST['username'], $_POST['password'])) {
-        $_SESSION['username'] = getUser($_POST['username'])['username'];          
+        $_SESSION['username'] = getUser($_POST['username'])['username'];
+        $_SESSION['userId'] = getUser($_POST['username'])['id'];          
         header("Location: ?controller=juego&action=dashBoard");
     } else {
         // Mensaje de error si la contraseña o usuario son erroneas.
