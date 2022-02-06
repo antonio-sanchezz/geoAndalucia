@@ -37,7 +37,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT DISTINCT(idUsuario), puntuacion FROM puntuaciones ORDER BY puntuacion DESC";
+            $sqlQuery = "SELECT username, idUsuario, MAX(puntuacion) FROM puntuaciones AS punt INNER JOIN usuarios AS user WHERE user.id = punt.idUsuario GROUP BY idUsuario ORDER BY puntuacion DESC";
             $stmt = $db->query($sqlQuery);
             $puntuaciones = $stmt->fetchAll();
 
