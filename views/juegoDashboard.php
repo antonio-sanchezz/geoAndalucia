@@ -21,5 +21,6 @@
             echo "<p>Usuario: " . $puntuacion['username'] . " - Puntuación: " . $puntuacion['MAX(puntuacion)'] . "</p>";
         }
     ?>
+    <a href="?controller=juego&action=jugar">Jugar</a>
 </body>
 </html>

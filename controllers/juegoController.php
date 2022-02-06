@@ -14,6 +14,17 @@ function dashBoard() {
     include './views/juegoDashboard.php';
 }
 
+function jugar() {
+
+    // Se incluye el modelo.
+    require './models/juegoModel.php';
+
+    
+
+    // Se incluye la vista para cargar el juego.
+    include './views/juegoPlay.php';
+}
+
 ?>
 
 

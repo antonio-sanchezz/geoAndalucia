@@ -51,4 +51,11 @@
 
     }
 
+    /**
+     * Obtenemos 5 localizaciones aleatoriamente para iniciar el juego.
+     */
+    function obtenerLocalizaciones() {
+
+    }
+
 ?>
