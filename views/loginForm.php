@@ -17,5 +17,6 @@
         </div>
         <input type="submit" value="Entrar">
     </form>
+    <a href="?controller=usuarios&action=formRegister">Registrarse</a>
 </body>
 </html>

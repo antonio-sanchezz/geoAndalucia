@@ -7,14 +7,14 @@ session_start();
  */
 function formLogin() {
 
-    // Se incluye el modelo.
-    require './models/usuariosModel.php';
-
     // Comprobamos si el usuario tiene ya una sesión iniciada.
     if (isset($_SESSION['username'])) 
     {
         header("Location: ?controller=juego&action=dashBoard");
     }
+
+    // Se incluye el modelo.
+    require './models/usuariosModel.php';
 
     $error = "";
 
@@ -46,13 +46,23 @@ function formRegister() {
         header("Location: ?controller=juego&action=dashBoard");
     }
 
-    // Obtenemos el mensaje de error en caso de que exista y lo mostramos.
-    if (!isset($error)) {
-        $error = "";
-    }
-
     // Se incluye el modelo.
     require './models/usuariosModel.php';
+
+    $error = "";
+
+    // Registramos al usuario en caso de que no exista.
+    if ($_SERVER['REQUEST_METHOD'] == 'POST') {
+
+        if (register($_POST['username'], $_POST['password'])) {
+            $_SESSION['username'] = getUser($_POST['username'])['username'];
+            $_SESSION['userId'] = getUser($_POST['username'])['id'];          
+            header("Location: ?controller=juego&action=dashBoard");
+        } else {
+            // Mensaje de error si la contraseña o usuario son erroneas.
+            $error = "El usuario ya existe";
+        }
+    }
     
     // Se incluye la vista para cargar el formulario
     include './views/registerForm.php';

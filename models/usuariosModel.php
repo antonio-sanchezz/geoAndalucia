@@ -51,8 +51,24 @@
         $result = false;
         $user = getUser($username);
 
-        if ($user) {
+        if (!$user) {
+            try {
 
+                $db = getConnection();
+                $sqlInsert = "INSERT INTO usuarios (username, password) VALUES (?, ?)";
+                $stmt = $db->prepare($sqlInsert);
+                $stmt->bindParam(1, $username);
+                $stmt->bindParam(2, password_hash($password, PASSWORD_DEFAULT));
+            
+                $result = $stmt->execute();
+            
+            } catch (PDOException $e) {
+                $e->getMessage();
+            }
+            
+            $conn = null;
+        
+            return $result;
         }
 
         return $result;
