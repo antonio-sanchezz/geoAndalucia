@@ -7,7 +7,7 @@
     <title>Iniciar Sesión</title>
 </head>
 <body>
-    <form action="?controller=usuarios&action=loginCheck" method="POST">
+    <form action="?controller=usuarios&action=formLogin" method="POST">
         <label for="username">Usuario</label><br>
         <input type="text" id="username" name="username"><br>
         <label for="password">Contraseña</label><br>

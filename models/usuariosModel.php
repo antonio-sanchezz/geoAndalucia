@@ -45,4 +45,17 @@
 
         return $result;
     }
+
+    function register($username, $password) {
+
+        $result = false;
+        $user = getUser($username);
+
+        if ($user) {
+
+        }
+
+        return $result;
+
+    }
 ?>
