@@ -22,7 +22,7 @@ function jugar() {
     // SE SOLICITAN LOS IDS AL MODELO 
     $cantidadDeUbicaciones = obtenerLocalizaciones();
     // Y POSTERIORMENTE SE SELECCIONAN 5 ALEATORIAS PARA GUARDARLAS EN UNA VARIABLE DE SESION;
-    $localizaciones =[];
+    $localizaciones = [];
     for ($i=0; $i < 5; $i++) { 
       $localizaciones[$i] = mt_rand(1, $cantidadDeUbicaciones);
     }

@@ -57,7 +57,8 @@
 <body>
     <div class="top-secret"><p>Poner texto aquí</p></div>
     <iframe src="https://www.google.com/maps/embed?pb=!4v1644151713282!6m8!1m7!1s7nKnS3WP_uqKco8zReKkhg!2m2!1d37.38233753430826!2d-5.996589215518552!3f77.35779408296617!4f30.100921247544704!5f0.7820865974627469" height="450" style="border:0;"></iframe>
-    <button id="adivinar" type="button">Adivinar</button>    
+    <button id="adivinar" type="button">Adivinar</button> 
+    <?php print_r($_SESSION['localizaciones']);?>   
     <div class="modal">
         <div id="mapaAndalucia">
             <span class="close">&times;</span>

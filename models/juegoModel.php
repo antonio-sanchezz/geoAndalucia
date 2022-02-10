@@ -56,9 +56,9 @@
      */
     function obtenerLocalizaciones() {
         $db = getConnection();
-        $sqlQuery = "SELECT COUNT(*) FROM `ubicaciones`";
+        $sqlQuery = "SELECT COUNT(*) FROM ubicaciones";
         $stmt = $db->query($sqlQuery);
-        $ubicaciones = $stmt;
+        $ubicaciones = $stmt->fetchColumn();
         
         $stmt = null;
         return $ubicaciones;
