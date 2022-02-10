@@ -55,7 +55,40 @@
      * Obtenemos 5 localizaciones aleatoriamente para iniciar el juego.
      */
     function obtenerLocalizaciones() {
-
+        $db = getConnection();
+        $sqlQuery = "SELECT COUNT(*) FROM ubicaciones";
+        $stmt = $db->query($sqlQuery);
+        $ubicaciones = $stmt->fetchColumn();
+        
+        $stmt = null;
+        return $ubicaciones;
     }
+
+    /**
+     * Metodo que devuelve los datos de una ubiación en función del id que se le ha pasado por parametros.
+     */
+    function obtenerLocalizacion($idUbicacion){
+        try {
+
+            $db = getConnection();
+            $sqlQuery = "SELECT * FROM `ubicaciones` WHERE id = ?";
+            $stmt = $db->prepare($sqlQuery);
+            $stmt->bindParam(1, $idUbicacion);
+
+            $stmt->execute();
+
+            $ubicacion = $stmt->fetchAll();
+
+        } catch (PDOException $e) {
+            $e->getMessage();
+        }
+
+        $stmt = null;
+
+        return $ubicacion;
+    }
+
+
+   
 
 ?>

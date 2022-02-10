@@ -53,14 +53,17 @@ function formRegister() {
 
     // Registramos al usuario en caso de que no exista.
     if ($_SERVER['REQUEST_METHOD'] == 'POST') {
-
-        if (register($_POST['username'], $_POST['password'])) {
-            $_SESSION['username'] = getUser($_POST['username'])['username'];
-            $_SESSION['userId'] = getUser($_POST['username'])['id'];          
-            header("Location: ?controller=juego&action=dashBoard");
+        if ($_POST['passwordRepeat'] == $_POST['password']) {
+            if (register($_POST['username'], $_POST['password'])) {
+                $_SESSION['username'] = getUser($_POST['username'])['username'];
+                $_SESSION['userId'] = getUser($_POST['username'])['id'];          
+                header("Location: ?controller=juego&action=dashBoard");
+            } else {
+                // Mensaje de error si la contraseña o usuario son erroneas.
+                $error = "El usuario ya existe";
+            }
         } else {
-            // Mensaje de error si la contraseña o usuario son erroneas.
-            $error = "El usuario ya existe";
+            $error = "Las contraseñas no coinciden";
         }
     }
     
