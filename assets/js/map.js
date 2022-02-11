@@ -8,4 +8,12 @@ $(function(){
         $(".modal").hide();
     });
 
+    $(document).mousemove(function(event){
+        console.log(event.pageX + ", " + event.pageY);
+    });
+
+    $("#huelva").mousemove(function() {
+        $(this).css('cursor','help');
+    });
+
 });
