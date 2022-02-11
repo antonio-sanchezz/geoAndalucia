@@ -50,8 +50,23 @@
         text-decoration: none;
         cursor: pointer;
     }
+    #huelvaimg {
+        position: absolute;
+        text-align: center;
+        z-index: 2;
+        display: none;
+    }
+    #sevillaimg {
+        position: absolute;
+        text-align: center;
+        z-index: 2;
+        display: none;
+    }
     </style>
 <body>
+<img id="huelvaimg" src="./assets/images/huelva.png" />
+<img id="sevillaimg" src="./assets/images/sevilla.png" />
+
     <div class="top-secret"><p>Poner texto aquí</p></div>
     <iframe src="https://www.google.com/maps/embed?pb=!4v1644151713282!6m8!1m7!1s7nKnS3WP_uqKco8zReKkhg!2m2!1d37.38233753430826!2d-5.996589215518552!3f77.35779408296617!4f30.100921247544704!5f0.7820865974627469" height="450" style="border:0;"></iframe>
     <button id="adivinar" type="button">Adivinar</button> 
@@ -61,6 +76,7 @@
             <img src="assets/images/mapaAndalucia.png" alt="mapaAndalucia" usemap="#mapaAndalucia">
             <map name="mapaAndalucia">
                 <area id="huelva" shape="poly" coords="99,107,19,210,32,270,162,338,162,206,146,204,153,186,192,153,100,109,99,107" href="google.es">
+                <area id="sevilla" shape="poly" coords="166,324,385,267,343,193,301,213,292,198,304,193,271,124,253,115,229,129,193,155,188,183,156,196,180,234,169,313,166,324" href="google.es">
             </map>
             <span class="close">&times;</span>
         </div>
