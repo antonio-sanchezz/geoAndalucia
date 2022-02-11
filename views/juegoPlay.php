@@ -58,9 +58,14 @@
     <?php print_r($_SESSION['localizaciones']);?>   
     <div class="modal">
         <div id="mapaAndalucia">
+            <img src="assets/images/mapaAndalucia.png" alt="mapaAndalucia" usemap="#mapaAndalucia">
+            <map name="mapaAndalucia">
+                <area id="huelva" shape="poly" coords="99,107,19,210,32,270,162,338,162,206,146,204,153,186,192,153,100,109,99,107" href="google.es">
+            </map>
             <span class="close">&times;</span>
-            <img src="assets/images/mapaAndalucia.png" />
         </div>
     </div>
 </body>
 </html>
+
+<!-- https://www.w3schools.com/html/html_images_imagemap.asp -->
