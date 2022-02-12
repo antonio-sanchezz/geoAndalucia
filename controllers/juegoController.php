@@ -43,7 +43,21 @@ function jugar() {
  */
 function calcularDistancia() {
 
-  $_SESSION['puntuacion'] = 0;
+  $coordendasMarcadas = $_POST['coordendas'];
+  $id = $_POST['idUbicacion'];
+
+  // Calculo de distancia entre los puntos.
+
+  $puntoMonumentoActual = obtenerLocalizacion($id)['pxCoords'];
+  $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
+  $coordendasMarcadas = explode(",", $coordendasMarcadas);
+
+  $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
+
+  // Asignación de puntos dependiendo de la distancia a la que esté.
+  $totalPuntos = $totalDistancia*1;
+
+  $_SESSION['puntuacion'] += $totalPuntos;
 
 }
 

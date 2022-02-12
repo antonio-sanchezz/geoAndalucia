@@ -52,6 +52,7 @@ $(function(){
 
         $.ajax({
             data: {'coordenadas':coordenadas},
+            type: 'post',
             url: "?controller=juego&action=calcularDistancia",
             success: function(result) {
                 var solucion = JSON.parse(result);
