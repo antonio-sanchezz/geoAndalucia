@@ -11,6 +11,7 @@
 <style>
    iframe {
     width: 100%;
+    height: 700px;
    }
    .top-bar {
        position: absolute;
@@ -37,7 +38,7 @@
         border: 1px solid #888;
     }
 
-    .close {
+    .close, .closeCiudad {
         color: #aaaaaa;
         float: right;
         font-size: 28px;
@@ -45,7 +46,7 @@
         }
   
     .close:hover,
-    .close:focus {
+    .close:focus, .closeCiudad:focus, .closeCiudad:hover {
         color: #000;
         text-decoration: none;
         cursor: pointer;
@@ -81,6 +82,8 @@
     </div>
     <div class="modalCiudad">
         <div id="mapaCiudad">
+            <img id="mapaCiudadOpen" src="" alt="mapaCiudad">
+            <span class="closeCiudad">&times;</span>
         </div>
     </div>
 </body>

@@ -15,6 +15,10 @@ $(function(){
         $("#nombreCiudad").hide();
     });
 
+    $('.closeCiudad').click(function(){
+        $(".modalCiudad").hide();
+    });
+
     // Acciones a pasar el raton por las provincias.
     $("area").mousemove(function(e) {
         let elementId = $(this).attr("id");
@@ -29,7 +33,15 @@ $(function(){
 
     // Accion al hacer click sobre una provincia.
     $("area").click(function() {
-        console.log("click");
+        console.log("Prueba click");
+        
+        // Ocultamos el nombre de la ciudad.
+        $("#nombreCiudad").hide();
+        // Abrimos el mapa de la ciudad que se ha elegido.
+        $("#modalCiudad").show();
+        let elementIdCiudad = $(this).attr("id");
+        let imagenCiudad = $("#mapaCiudadOpen");
+        imagenCiudad.attr('src', 'assets/images/' + elementIdCiudad + 'Map.png');
         $(".modalCiudad").show();
     });
 });
