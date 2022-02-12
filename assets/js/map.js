@@ -10,30 +10,21 @@ $(function(){
         });
     });
 
-    // Ocultamos la ventana modal del mapa de Andalucia.
+    // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
     $('.close').click(function(){
         $(".modal").hide();
+        $("#nombreCiudad").hide();
     });
 
-    // Acciones para la provincia de Huelva.
-    $("#huelva").mousemove(function(e) {
-        // Un icono de ubicacion hace de cursor.
-        $("#sevillaimg").hide();
-        $("#huelvaimg").show();
-        $("#huelvaimg").css({
+    // Acciones a pasar el raton por las provincias.
+    $("area").mousemove(function(e) {
+        let elementId = $(this).attr("id");
+        let imagen = $("#nombreCiudad");
+        imagen.attr('src', 'assets/images/' + elementId + '.png');
+        imagen.show();
+        imagen.css({
             left: e.pageX,
             top: e.pageY
         });
     });
-
-    $("#sevilla").mousemove(function(e) {
-        // Un icono de ubicacion hace de cursor.
-        $("#huelvaimg").hide();
-        $("#sevillaimg").show();
-        $("#sevillaimg").css({
-            left: e.pageX,
-            top: e.pageY
-        });
-    });
-
 });
