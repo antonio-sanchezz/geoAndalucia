@@ -2,12 +2,11 @@ $(function(){
 
     $("#adivinar").click(function() {
         $(".modal").show();
-        $("#huelva").css('cursor','none');
 
         // Averiguar coordenadas en px.
-        $(document).mousemove(function(event){
+       /* $(document).mousemove(function(event){
             console.log(event.pageX + ", " + event.pageY);
-        });
+        });*/
     });
 
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
@@ -26,5 +25,11 @@ $(function(){
             left: e.pageX,
             top: e.pageY
         });
+    });
+
+    // Accion al hacer click sobre una provincia.
+    $("area").click(function() {
+        console.log("click");
+        $(".modalCiudad").show();
     });
 });
