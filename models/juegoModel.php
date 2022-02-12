@@ -86,9 +86,6 @@
         $stmt = null;
 
         return $ubicacion;
-    }
-
-
-   
+    }  
 
 ?>
