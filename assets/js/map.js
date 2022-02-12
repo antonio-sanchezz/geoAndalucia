@@ -32,7 +32,7 @@ $(function(){
     });
 
     // Accion al hacer click sobre una provincia.
-    $("area").mousemove(function() {
+    $("area").click(function() {
         console.log("Prueba click");
         
         // Ocultamos el nombre de la ciudad.
