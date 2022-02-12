@@ -6,58 +6,9 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <script src="https://ajax.googleapis.com/ajax/libs/jquery/3.5.1/jquery.min.js"></script>
     <script src="assets/js/map.js"></script>
+    <link href="./assets/css/juego.css" rel="stylesheet" />
     <title>¿Dónde está este monumento?</title>
 </head>
-<style>
-   iframe {
-    width: 100%;
-    height: 700px;
-   }
-   .top-bar {
-       position: absolute;
-       width: 100%;
-       height: 70px;
-       background-color: #b9fdcb;
-       text-align: center;
-   }
-   .modal, .modalCiudad {
-        display: none;
-        position: fixed;
-        z-index: 1;
-        left: 0;
-        top: 0;
-        width: 100%;
-        height: 100%;
-        overflow: auto;
-        background-color: rgb(0,0,0);
-        background-color: rgba(0,0,0,0.8);
-    }
-
-    .mapaAndalucia, .mapaCiudad {
-        background-color: #fefefe;
-        border: 1px solid #888;
-    }
-
-    .close, .closeCiudad {
-        color: #aaaaaa;
-        float: right;
-        font-size: 28px;
-        font-weight: bold;
-        }
-  
-    .close:hover,
-    .close:focus, .closeCiudad:focus, .closeCiudad:hover {
-        color: #000;
-        text-decoration: none;
-        cursor: pointer;
-    }
-    #nombreCiudad {
-        position: absolute;
-        text-align: center;
-        z-index: 2;
-        display: none;
-    }
-    </style>
 <body>
     <img class="nombreCiudad" id="nombreCiudad" src="" />
     <div class="top-bar"><p>¿Dónde está este monumento?</p></div>

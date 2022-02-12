@@ -4,9 +4,9 @@ $(function(){
         $(".modal").show();
 
         // Averiguar coordenadas en px.
-       /* $(document).mousemove(function(event){
+        $(document).mousemove(function(event){
             console.log(event.pageX + ", " + event.pageY);
-        });*/
+        });
     });
 
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
@@ -32,7 +32,7 @@ $(function(){
     });
 
     // Accion al hacer click sobre una provincia.
-    $("area").click(function() {
+    $("area").mousemove(function() {
         console.log("Prueba click");
         
         // Ocultamos el nombre de la ciudad.
@@ -43,5 +43,19 @@ $(function(){
         let imagenCiudad = $("#mapaCiudadOpen");
         imagenCiudad.attr('src', 'assets/images/' + elementIdCiudad + 'Map.png');
         $(".modalCiudad").show();
+    });
+
+    // Calcular la distancia a la que se encuentran los dos puntos.
+    $("#mapaCiudadOpen").click(function(e) {
+
+        var coordenadas = e.pageX + ',' + e.pageY;
+
+        $.ajax({
+            data: {'coordenadas':coordenadas},
+            url: "?controller=juego&action=calcularDistancia",
+            success: function(result) {
+                var solucion = JSON.parse(result);
+            }
+        });
     });
 });

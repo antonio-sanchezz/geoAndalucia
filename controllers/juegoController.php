@@ -19,6 +19,10 @@ function jugar() {
     // Se incluye el modelo.
     require './models/juegoModel.php';
 
+    if (!$_SESSION['puntuacion']) {
+      $_SESSION['puntuacion'] = 0;
+    }
+
     // SE SOLICITAN LOS IDS AL MODELO 
     $cantidadDeUbicaciones = obtenerLocalizaciones();
     // Y POSTERIORMENTE SE SELECCIONAN 5 ALEATORIAS PARA GUARDARLAS EN UNA VARIABLE DE SESION;
@@ -33,7 +37,15 @@ function jugar() {
     include './views/juegoPlay.php';
 }
 
+/**
+ * Calculamos la distancia y la puntuacion que recibe el jugador una vez que ha seleccionado un punto en la ciudad.
+ * Lo devolvemos mediante ajax para que aparezca en la pantalla a que ditancia estaba y la puntuación que va a recibir.
+ */
+function calcularDistancia() {
 
+  $_SESSION['puntuacion'] = 0;
+
+}
 
 ?>
 
