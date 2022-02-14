@@ -26,8 +26,8 @@ $(function(){
         imagen.attr('src', 'assets/images/' + elementId + '.png');
         imagen.show();
         imagen.css({
-            left: e.pageX,
-            top: e.pageY
+            left: e.pageX+10,
+            top: e.pageY+10
         });
     });
 
