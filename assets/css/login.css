@@ -4,3 +4,11 @@ a:link,
             text-decoration: none;
             color: white;
         }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #007932 !important;
+    border-color: #007932 !important;
+}
+.separador{
+    margin-top: 20%;
+}

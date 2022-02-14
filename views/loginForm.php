@@ -14,22 +14,23 @@
 </head>
 
 <body>
-    <form action="?controller=usuarios&action=formLogin" method="POST">
+
+<div class="position-relative separador">
+
+<div class="position-absolute top-50 start-50 translate-middle">
+
+<form action="?controller=usuarios&action=formLogin" method="POST">
         <div class="mb-3">
-            <label for="username" class="form-label">Usuario</label>
+            <label for="username" class="form-label">¿Cómo te quieres llamar?</label>
             <input type="text" class="form-control" id="username" name="username">
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="error">
-            <p><?php echo $error; ?></p>
-        </div>
+        
 
-        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-        <button class="btn btn-primary"> <a href="?controller=usuarios&action=formRegister">Registrarse</a></button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        
     </form>
+</div>
+</div>
 </body>
 
 </html>
