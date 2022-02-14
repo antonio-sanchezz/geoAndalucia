@@ -19,6 +19,10 @@ function jugar() {
     // Se incluye el modelo.
     require './models/juegoModel.php';
 
+    if(isset($_SESSION['localizaciones'])){
+
+      
+    }else{
     if (!$_SESSION['puntuacion']) {
       $_SESSION['puntuacion'] = 0;
     }
@@ -28,14 +32,36 @@ function jugar() {
     // Y POSTERIORMENTE SE SELECCIONAN 5 ALEATORIAS PARA GUARDARLAS EN UNA VARIABLE DE SESION;
     $localizaciones = [];
     for ($i=0; $i < 5; $i++) { 
-      $localizaciones[$i] = mt_rand(1, $cantidadDeUbicaciones);
+      $numeroRandom = mt_rand(1, $cantidadDeUbicaciones);
+      // Comprobamos que el número aleatorio no esté ya contenido en el array, para que no nos devuelva dos localizaciones iguales:
+      if(in_array($numeroRandom, $localizaciones, false)){
+        $i--;
+      }
+      else{
+      $localizaciones[$i]  = $numeroRandom;
+      }
     }
     $_SESSION['localizaciones'] = $localizaciones;
     // UNA VEZ LLEGADOS AQUÍ TENEMOS UNA VARIABLE DE SESION CON 5 IDS DISTINTOS PARA NUESTRO JUEGO.
-    
+  }
     // Se incluye la vista para cargar el juego.
     include './views/juegoPlay.php';
 }
+
+
+/**
+ * Función que elimina la primera localización de la variable de sesion localizaciones:
+ * 
+ */
+function nextJuego(){
+$localizaciones = $_SESSION['localizaciones'];
+$localizaciones = array_shift($localizaciones);
+$_SESSION['localizaciones'] = $localizaciones;
+header("./index.php?controller=juego&action=jugar");
+}
+
+
+
 
 /**
  * Calculamos la distancia y la puntuacion que recibe el jugador una vez que ha seleccionado un punto en la ciudad.
@@ -60,7 +86,3 @@ function calcularDistancia() {
   $_SESSION['puntuacion'] += $totalPuntos;
 
 }
-
-?>
-
-
