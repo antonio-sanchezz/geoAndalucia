@@ -9,13 +9,13 @@
     /**
      * Obtenemos todas las puntuaciones del jugador.
      */
-    function obtenerPuntuacionesJugador($idUsuario) {
+    function obtenerPuntuacionesJugador($username) {
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT * FROM puntuaciones WHERE idUsuario = ?";
+            $sqlQuery = "SELECT * FROM puntuaciones WHERE username = ?";
             $stmt = $db->prepare($sqlQuery);
-            $stmt->bindParam(1, $idUsuario);
+            $stmt->bindParam(1, $username);
 
             $stmt->execute();
 
