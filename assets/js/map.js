@@ -34,7 +34,6 @@ $(function(){
 
     // Accion al hacer click sobre una provincia.
     $("area").click(function() {
-        console.log("Prueba click");
         
         // Ocultamos el nombre de la ciudad.
         $("#nombreCiudad").hide();
@@ -58,13 +57,18 @@ $(function(){
             top: e.pageY
         });
 
+        // Obtenemos las coordendas y el nombre de la ciudad.
         var coordenadas = e.pageX + ',' + e.pageY;
+        var ciudad = "";
 
         // Confirmamos que es la ubicacion seleccionada.
         $("#confirmarUbicacion").click(function() {
             // Obtenemos la puntuación de la partida actual.
             $.ajax({
-                data: {'coordenadas':coordenadas},
+                data: {
+                    'coordenadas':coordenadas,
+                    'ciudad':ciudad
+                },
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
                 success: function(result) {

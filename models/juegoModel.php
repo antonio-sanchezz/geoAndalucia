@@ -71,7 +71,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT * FROM `ubicaciones` WHERE id = ?";
+            $sqlQuery = "SELECT * FROM ubicaciones WHERE id = ?";
             $stmt = $db->prepare($sqlQuery);
             $stmt->bindParam(1, $idUbicacion);
 

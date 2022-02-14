@@ -43,6 +43,7 @@ function jugar()
     $_SESSION['localizaciones'] = $localizaciones;
     // UNA VEZ LLEGADOS AQUÍ TENEMOS UNA VARIABLE DE SESION CON 5 IDS DISTINTOS PARA NUESTRO JUEGO.
   }
+  $datosLugar = obtenerLocalizacion($_SESSION['localizaciones'][0]);
   // Se incluye la vista para cargar el juego.
   include './views/juegoPlay.php';
 }
@@ -71,18 +72,28 @@ function calcularDistancia()
 {
 
   $coordendasMarcadas = $_POST['coordendas'];
-  $id = $_POST['idUbicacion'];
+  $ciudad = $_POST['ciudad'];
+  $id = $_SESSION['localizaciones'][0]['id'];
 
   // Calculo de distancia entre los puntos.
+  $monumentoActual = obtenerLocalizacion($id);
 
-  $puntoMonumentoActual = obtenerLocalizacion($id)['pxCoords'];
+  $puntoMonumentoActual = $monumentoActual['pxCoords'];
   $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
 
+  // Distancia total del monumento al punto marcado.
   $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
-  // Asignación de puntos dependiendo de la distancia a la que esté.
-  $totalPuntos = 5000 - ($totalDistancia * 2);
+  if ($ciudad == $monumentoActual['ciudad']) {
+    // Asignación de puntos dependiendo de la distancia a la que esté.
+    $totalPuntos = 5000 - ($totalDistancia * 2);
+  } else {
+    // En el caso de que la ciudad no sea la correcta serán 0 puntos.
+    $totalPuntos = 0;
+  }
 
+  // Sumamos al total de la partida los puntos obtenidos.
   $_SESSION['puntuacion'] += $totalPuntos;
+
 }
