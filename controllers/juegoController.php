@@ -82,7 +82,7 @@ function calcularDistancia()
   $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
   // Asignación de puntos dependiendo de la distancia a la que esté.
-  $totalPuntos = $totalDistancia * 1;
+  $totalPuntos = 5000 - ($totalDistancia * 2);
 
   $_SESSION['puntuacion'] += $totalPuntos;
 }
