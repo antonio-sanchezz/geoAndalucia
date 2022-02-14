@@ -10,7 +10,7 @@
     <title>¿Dónde está este monumento?</title>
 </head>
 <body>
-    <img class="nombreCiudad" id="nombreCiudad" src="" />
+    <img class="nombreCiudad" id="nombreCiudad"/>
     <div class="top-bar"><p>¿Dónde está este monumento?</p></div>
     <iframe src="https://www.google.com/maps/embed?pb=!4v1644151713282!6m8!1m7!1s7nKnS3WP_uqKco8zReKkhg!2m2!1d37.38233753430826!2d-5.996589215518552!3f77.35779408296617!4f30.100921247544704!5f0.7820865974627469" height="450" style="border:0;"></iframe>
     <button id="adivinar" type="button">Adivinar</button> 
@@ -35,6 +35,7 @@
         <div id="mapaCiudad">
             <img id="mapaCiudadOpen" src="" alt="mapaCiudad">
             <span class="closeCiudad">&times;</span>
+            <input type="button" id="confirmarUbicacion" value="Confirmar"/>
         </div>
     </div>
 </body>

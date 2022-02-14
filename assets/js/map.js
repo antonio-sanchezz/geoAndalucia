@@ -9,18 +9,6 @@ $(function(){
         });
     });
 
-    // Poner icono de localización en un mapa de una ciudad.
-    $("#mapaCiudadOpen").mousemove(function(e) {
-        let elementId = $(this).attr("id");
-        let imagen = $("#nombreCiudad");
-        imagen.attr('src', 'assets/images/placeholder.png');
-        imagen.show();
-        imagen.css({
-            left: e.pageX+10,
-            top: e.pageY+10
-        });
-    });
-
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
     $('.close').click(function(){
         $(".modal").hide();
@@ -61,15 +49,29 @@ $(function(){
     // Calcular la distancia a la que se encuentran los dos puntos.
     $("#mapaCiudadOpen").click(function(e) {
 
+        // Poner icono de localización en un mapa de una ciudad.
+        let imagen = $("#nombreCiudad");
+        imagen.attr('src', 'assets/images/placeholder.png');
+        imagen.show();
+        imagen.css({
+            left: e.pageX,
+            top: e.pageY
+        });
+
         var coordenadas = e.pageX + ',' + e.pageY;
 
-        $.ajax({
-            data: {'coordenadas':coordenadas},
-            type: 'post',
-            url: "?controller=juego&action=calcularDistancia",
-            success: function(result) {
-                var solucion = JSON.parse(result);
-            }
+        // Confirmamos que es la ubicacion seleccionada.
+        $("#confirmarUbicacion").click(function() {
+            // Obtenemos la puntuación de la partida actual.
+            $.ajax({
+                data: {'coordenadas':coordenadas},
+                type: 'post',
+                url: "?controller=juego&action=calcularDistancia",
+                success: function(result) {
+                    var solucion = JSON.parse(result);
+                }
+            });
         });
+
     });
 });
