@@ -2,27 +2,27 @@
 
 session_start();
 
-function dashBoard() {
+function dashBoard()
+{
 
-    // Se incluye el modelo.
-    require './models/juegoModel.php';
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
 
-    $puntuacionIndividual = obtenerPuntuacionesJugador($_SESSION['userId']);
-    $puntuacionGlobal = obtenerPuntuacionesGlobal();
+  $puntuacionIndividual = obtenerPuntuacionesJugador($_SESSION['userId']);
+  $puntuacionGlobal = obtenerPuntuacionesGlobal();
 
-    // Se incluye la vista para cargar el panel.
-    include './views/juegoDashboard.php';
+  // Se incluye la vista para cargar el panel.
+  include './views/juegoDashboard.php';
 }
 
-function jugar() {
+function jugar()
+{
 
-    // Se incluye el modelo.
-    require './models/juegoModel.php';
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
 
-    if(isset($_SESSION['localizaciones'])){
-
-      
-    }else{
+  if (isset($_SESSION['localizaciones'])) {
+  } else {
     if (!$_SESSION['puntuacion']) {
       $_SESSION['puntuacion'] = 0;
     }
@@ -31,21 +31,20 @@ function jugar() {
     $cantidadDeUbicaciones = obtenerLocalizaciones();
     // Y POSTERIORMENTE SE SELECCIONAN 5 ALEATORIAS PARA GUARDARLAS EN UNA VARIABLE DE SESION;
     $localizaciones = [];
-    for ($i=0; $i < 5; $i++) { 
+    for ($i = 0; $i < 5; $i++) {
       $numeroRandom = mt_rand(1, $cantidadDeUbicaciones);
       // Comprobamos que el número aleatorio no esté ya contenido en el array, para que no nos devuelva dos localizaciones iguales:
-      if(in_array($numeroRandom, $localizaciones, false)){
+      if (in_array($numeroRandom, $localizaciones, false)) {
         $i--;
-      }
-      else{
-      $localizaciones[$i]  = $numeroRandom;
+      } else {
+        $localizaciones[$i]  = $numeroRandom;
       }
     }
     $_SESSION['localizaciones'] = $localizaciones;
     // UNA VEZ LLEGADOS AQUÍ TENEMOS UNA VARIABLE DE SESION CON 5 IDS DISTINTOS PARA NUESTRO JUEGO.
   }
-    // Se incluye la vista para cargar el juego.
-    include './views/juegoPlay.php';
+  // Se incluye la vista para cargar el juego.
+  include './views/juegoPlay.php';
 }
 
 
@@ -53,11 +52,12 @@ function jugar() {
  * Función que elimina la primera localización de la variable de sesion localizaciones:
  * 
  */
-function nextJuego(){
-$localizaciones = $_SESSION['localizaciones'];
-$localizaciones = array_shift($localizaciones);
-$_SESSION['localizaciones'] = $localizaciones;
-header("./index.php?controller=juego&action=jugar");
+function nextJuego()
+{
+  $localizaciones = $_SESSION['localizaciones'];
+  array_shift($localizaciones);
+  $_SESSION['localizaciones'] = $localizaciones;
+  header("?controller=juego&action=jugar");
 }
 
 
@@ -67,7 +67,8 @@ header("./index.php?controller=juego&action=jugar");
  * Calculamos la distancia y la puntuacion que recibe el jugador una vez que ha seleccionado un punto en la ciudad.
  * Lo devolvemos mediante ajax para que aparezca en la pantalla a que ditancia estaba y la puntuación que va a recibir.
  */
-function calcularDistancia() {
+function calcularDistancia()
+{
 
   $coordendasMarcadas = $_POST['coordendas'];
   $id = $_POST['idUbicacion'];
@@ -81,8 +82,7 @@ function calcularDistancia() {
   $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
   // Asignación de puntos dependiendo de la distancia a la que esté.
-  $totalPuntos = $totalDistancia*1;
+  $totalPuntos = $totalDistancia * 1;
 
   $_SESSION['puntuacion'] += $totalPuntos;
-
 }
