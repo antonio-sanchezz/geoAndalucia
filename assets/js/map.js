@@ -9,6 +9,18 @@ $(function(){
         });
     });
 
+    // Poner icono de localización en un mapa de una ciudad.
+    $("#mapaCiudadOpen").mousemove(function(e) {
+        let elementId = $(this).attr("id");
+        let imagen = $("#nombreCiudad");
+        imagen.attr('src', 'assets/images/placeholder.png');
+        imagen.show();
+        imagen.css({
+            left: e.pageX+10,
+            top: e.pageY+10
+        });
+    });
+
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
     $('.close').click(function(){
         $(".modal").hide();
@@ -17,6 +29,7 @@ $(function(){
 
     $('.closeCiudad').click(function(){
         $(".modalCiudad").hide();
+        $("#nombreCiudad").hide();
     });
 
     // Acciones a pasar el raton por las provincias.

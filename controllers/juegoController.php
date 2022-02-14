@@ -23,7 +23,7 @@ function jugar()
 
   if (isset($_SESSION['localizaciones'])) {
   } else {
-    if (!$_SESSION['puntuacion']) {
+    if (!isset($_SESSION['puntuacion'])) {
       $_SESSION['puntuacion'] = 0;
     }
 
@@ -49,7 +49,7 @@ function jugar()
 
 
 /**
- * Función que elimina la primera localización de la variable de sesion localizaciones:
+ * Función que elimina la primera localización de la variable de sesion localizaciones.
  * 
  */
 function nextJuego()
