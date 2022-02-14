@@ -7,10 +7,11 @@
     <title>Inicio</title>
 </head>
 <body>
-    <h1>Panel de Usuario</h1>
+    <h1>Panel de Jugador</h1>
     <a href="?controller=usuarios&action=cerrarSesion">Cerrar Sesión</a>
     <?php
         // Puntuacion individual del jugador.
+
         foreach($puntuacionIndividual as $puntuacion) {
             echo "<p>" . $puntuacion['puntuacion'] . "</p>";
         }

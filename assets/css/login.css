@@ -4,3 +4,57 @@ a:link,
             text-decoration: none;
             color: white;
         }
+
+.btn-primary, .btn-primary:hover, .btn-primary:active, .btn-primary:visited {
+    background-color: #007932 !important;
+    border-color: #007932 !important;
+}
+.separador{
+    margin-top: 20%;
+}
+
+
+.footer-wrapper {
+    line-height: 1.2;
+    color: #FFF;
+    font-size: 14px;
+    position:absolute;
+    bottom:5px;
+}
+
+.mt120 {
+    margin-top: 120px !important;
+}
+body .bg3 {
+    background-color: #009655;
+}
+
+.content {
+    width: 100%;
+    max-width: 1400px;
+    margin: 0 auto;
+    position: relative;
+    
+}
+
+.row {
+    margin-right: -5px;
+    margin-left: -5px;
+}
+.pb20 {
+    padding-bottom: 20px !important;
+}
+
+.ta-c {
+    text-align: center!important;
+}
+
+.footer-wrapper .logo-footer {
+    margin-bottom: 30px;
+    margin-top: -200px;
+    
+}
+img{
+    width: 20%;
+    height: 20%;
+}
