@@ -68,13 +68,14 @@ $(function(){
             // Obtenemos la puntuación de la partida actual.
             $.ajax({
                 data: {
-                    'coordenadas':coordenadas,
-                    'ciudad':ciudad
+                    coordenadas:coordenadas,
+                    ciudad:ciudad
                 },
+                dataType: 'text',
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
-                success: function(result) {
-                    var solucion = JSON.parse(result);
+                success: function(result) {;
+                    console.log(result);
                 }
             });
         });

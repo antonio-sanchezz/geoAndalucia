@@ -71,29 +71,33 @@ function nextJuego()
 function calcularDistancia()
 {
 
-  $coordendasMarcadas = $_POST['coordendas'];
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
+
+  $coordendasMarcadas = $_POST['coordenadas'];
   $ciudad = $_POST['ciudad'];
-  $id = $_SESSION['localizaciones'][0]['id'];
+  $id = $_SESSION['localizaciones'][0];
+  // En el caso de que la ciudad no sea la correcta serán 0 puntos.
+  $totalPuntos = 0;
 
   // Calculo de distancia entre los puntos.
   $monumentoActual = obtenerLocalizacion($id);
 
-  $puntoMonumentoActual = $monumentoActual['pxCoords'];
+  $puntoMonumentoActual = $monumentoActual[0]['pxCoords'];
   $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
 
   // Distancia total del monumento al punto marcado.
   $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
-  if ($ciudad == $monumentoActual['ciudad']) {
+  if (strtoupper($ciudad) == strtoupper($monumentoActual[0]['ciudad'])) {
     // Asignación de puntos dependiendo de la distancia a la que esté.
     $totalPuntos = 5000 - ($totalDistancia * 2);
-  } else {
-    // En el caso de que la ciudad no sea la correcta serán 0 puntos.
-    $totalPuntos = 0;
   }
 
   // Sumamos al total de la partida los puntos obtenidos.
   $_SESSION['puntuacion'] += $totalPuntos;
+
+  echo $_SESSION['puntuacion'];
 
 }
