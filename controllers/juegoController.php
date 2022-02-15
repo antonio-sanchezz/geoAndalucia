@@ -83,6 +83,7 @@ function calcularDistancia()
   // Calculo de distancia entre los puntos.
   $monumentoActual = obtenerLocalizacion($id);
 
+  // Coordenadas de ambos puntos.
   $puntoMonumentoActual = $monumentoActual[0]['pxCoords'];
   $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
@@ -92,7 +93,7 @@ function calcularDistancia()
 
   if (strtoupper($ciudad) == strtoupper($monumentoActual[0]['ciudad'])) {
     // Asignación de puntos dependiendo de la distancia a la que esté.
-    $totalPuntos = 5000 - ($totalDistancia * 2);
+    $totalPuntos = 5000 - ($totalDistancia * 10);
   }
 
   // Sumamos al total de la partida los puntos obtenidos.
