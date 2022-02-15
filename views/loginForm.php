@@ -14,22 +14,49 @@
 </head>
 
 <body>
-    <form action="?controller=usuarios&action=formLogin" method="POST">
+
+<div class="position-relative separador">
+
+<div class="position-absolute top-50 start-50 translate-middle text-center">
+
+<form action="?controller=usuarios&action=formLogin" method="POST">
         <div class="mb-3">
-            <label for="username" class="form-label">Usuario</label>
+            <label for="username" class="form-label ">¿Cómo te quieres llamar?</label>
             <input type="text" class="form-control" id="username" name="username">
         </div>
-        <div class="mb-3">
-            <label for="password" class="form-label">Contraseña</label>
-            <input type="password" class="form-control" id="password" name="password">
-        </div>
-        <div class="error">
-            <p><?php echo $error; ?></p>
-        </div>
+        
 
-        <button type="submit" class="btn btn-primary">Iniciar Sesion</button>
-        <button class="btn btn-primary"> <a href="?controller=usuarios&action=formRegister">Registrarse</a></button>
+        <button type="submit" class="btn btn-primary">Entrar</button>
+        
     </form>
+    <br><br><br>
+    <br><br><br>
+    <br><br><br>
+    <br><br><br>
+</div>
+</div>
+
+<div class="footer-wrapper mt120 bg3">
+    <div class="content">
+        <div class="row pb20 ta-c">
+            <div class="fw-col sm-order2">
+                <div><a href=""><img class="logo-footer" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Emblema_de_la_Junta_de_Andaluc%C3%ADa_2020.svg/1200px-Emblema_de_la_Junta_de_Andaluc%C3%ADa_2020.svg.png"></a>
+            
+            <div class="fw-col sm-order1 pv20">
+                <img src="https://thumb.besoccerapps.com/rbetis/img_web/logo-footer.png">
+                <p class="mt10 mb20">© REAL BETIS BALOMPIÉ. Esta página web es la única oficial del Real Betis Balompié. Todos los derechos reservados.</p>
+                <p>Avda. de Heliópolis, s/n 41012 Sevilla</p>
+                <p>Tf. +34 955 463 955</p>
+                <p><a style="text-decoration: none; color: white;" href="mailto:in%66o%40%72ea%6cbe%74%69%73b%61%6co%6d%70ie%2ees">info@realbetisbalompie.es</a></p>
+                <!--p><a href="mailto:&#99;o%6de&#114;c%69al%40%72%65albe%74isba&#108;om%70ie%2e%65&#115;">comercial@realbetisbalompie.es</a></p-->
+            </div>
+        </div>
+    </div>
+</div>
+</div>
+</div>
+
+
 </body>
 
 </html>
