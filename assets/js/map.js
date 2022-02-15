@@ -74,10 +74,16 @@ $(function(){
                 dataType: 'text',
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
-                success: function(result) {;
-                    console.log(result);
+                success: function(result) {
+                    $(".modalTerminado").show();
+                    $("#puntuacionObtenida").text(result);
                 }
             });
+        });
+
+        // Pasamos al siguiente nivel.
+        $("#continuar").click(function() {
+            $(location).attr('href','?controller=juego&action=nextJuego');
         });
 
     });

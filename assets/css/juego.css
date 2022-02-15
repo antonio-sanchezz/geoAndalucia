@@ -9,7 +9,7 @@ iframe {
     background-color: #b9fdcb;
     text-align: center;
 }
-.modal, .modalCiudad {
+.modal, .modalCiudad, .modalTerminado {
     display: none;
     position: fixed;
     z-index: 1;
@@ -27,7 +27,7 @@ iframe {
     margin-left: 500px;
 }
 
-.mapaAndalucia, .mapaCiudad {
+.mapaAndalucia, .mapaCiudad, #puntuacionMapa {
     background-color: #fefefe;
     border: 1px solid #888;
 }

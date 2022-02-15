@@ -22,6 +22,9 @@ function jugar()
   require './models/juegoModel.php';
 
   if (isset($_SESSION['localizaciones'])) {
+    if ($_SESSION['localizaciones'] == []) {
+      header("Location: ?controller=juego&action=terminar");
+    }
   } else {
     if (!isset($_SESSION['puntuacion'])) {
       $_SESSION['puntuacion'] = 0;
@@ -58,7 +61,7 @@ function nextJuego()
   $localizaciones = $_SESSION['localizaciones'];
   array_shift($localizaciones);
   $_SESSION['localizaciones'] = $localizaciones;
-  header("?controller=juego&action=jugar");
+  header("Location: ?controller=juego&action=jugar");
 }
 
 
@@ -97,8 +100,21 @@ function calcularDistancia()
   }
 
   // Sumamos al total de la partida los puntos obtenidos.
-  $_SESSION['puntuacion'] += $totalPuntos;
+  $_SESSION['puntuacion'] += round((int)$totalPuntos, 0);
 
-  echo $_SESSION['puntuacion'];
+  echo round($totalPuntos, 0);
 
+}
+
+/**
+ * Pantalla final del juego.
+ */
+function terminar() {
+
+  $puntuacion = $_SESSION['puntuacion'];
+  unset($_SESSION['puntuacion']);
+  unset($_SESSION['localizaciones']);
+
+  // Se incluye la vista para finalizar el juego.
+  include './views/juegoFinal.php';
 }

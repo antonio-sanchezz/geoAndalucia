@@ -36,6 +36,12 @@
             <img id="mapaCiudadOpen" alt="mapaCiudad">
             <span class="closeCiudad">&times;</span>
             <input type="button" id="confirmarUbicacion" value="Confirmar"/>
+            <div class="modalTerminado">
+                <div id="puntuacionMapa">
+                    Has conseguido: <p id="puntuacionObtenida"></p> puntos
+                    <input id="continuar" type="button" value="Continuar">
+                </div>
+            </div>
         </div>
     </div>
 </body>
