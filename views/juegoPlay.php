@@ -11,7 +11,7 @@
 </head>
 <body>
     <img class="nombreCiudad" id="nombreCiudad"/>
-    <div class="top-bar"><p>¿Dónde está este monumento?</p></div>
+    <div class="top-bar"><p>¿Dónde está este monumento?</p><p id="puntuacion"><?php echo $_SESSION['puntuacion'];?></p></div>
     <iframe src="https://www.google.com/maps/embed?pb=<?php echo $datosLugar[0]['googleCoords']; ?>" height="450" style="border:0;"></iframe>
     <button id="adivinar" type="button">Adivinar</button> 
     <?php print_r($_SESSION['localizaciones']);?>
