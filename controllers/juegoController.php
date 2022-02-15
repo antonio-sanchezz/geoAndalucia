@@ -92,11 +92,11 @@ function calcularDistancia()
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
 
   // Distancia total del monumento al punto marcado.
-  $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
+  $totalDistancia = sqrt(abs($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + abs($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
   if (strtoupper($ciudad) == strtoupper($monumentoActual[0]['ciudad'])) {
     // Asignación de puntos dependiendo de la distancia a la que esté.
-    $totalPuntos = 5000 - ($totalDistancia * 10);
+    $totalPuntos = 5000 - ($totalDistancia * 150);
   }
 
   // Sumamos al total de la partida los puntos obtenidos.
