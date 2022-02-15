@@ -20,8 +20,8 @@ a:link,
     font-size: 14px;
     position:absolute;
     bottom:5px;
-    margin-left: 5px;
-    width: 100%;
+    margin-left: 9px;
+    width: 99%;
     
     
 }
@@ -36,7 +36,7 @@ body .bg3 {
 .content {
     width: 100%;
     
-    margin-left: 5px;
+    
     margin: 0 auto;
     position: relative;
     

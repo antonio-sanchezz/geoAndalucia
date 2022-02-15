@@ -40,14 +40,14 @@
     <div class="content">
         <div class="row pb20 ta-c">
             <div class="fw-col sm-order2">
-                <div><a href=""><img class="logo-footer logo" src="https://upload.wikimedia.org/wikipedia/commons/thumb/f/f2/Emblema_de_la_Junta_de_Andaluc%C3%ADa_2020.svg/1200px-Emblema_de_la_Junta_de_Andaluc%C3%ADa_2020.svg.png"></a>
+                <div>
             
             <div class="fw-col sm-order1 pv20">
                 <img class="logo" src="./assets/images/mapa.png">
                 <p class="mt10 mb20">© GeoAndalucía. Esta página web es la única oficial de los alumnos de 2ºDAW. Todos los derechos reservados.</p>
                 <p>Esclava del señor, 12 41012 Sevilla</p>
                 <p><a style="text-decoration: none; color: white;" href="mailto:in%66o%40%72ea%6cbe%74%69%73b%61%6co%6d%70ie%2ees">info@iespoligonosur.org</a></p>
-                <!--p><a href="mailto:&#99;o%6de&#114;c%69al%40%72%65albe%74isba&#108;om%70ie%2e%65&#115;">comercial@realbetisbalompie.es</a></p-->
+                
             </div>
         </div>
     </div>
