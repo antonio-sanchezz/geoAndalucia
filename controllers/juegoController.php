@@ -111,7 +111,13 @@ function calcularDistancia()
  */
 function terminar() {
 
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
+
   $puntuacion = $_SESSION['puntuacion'];
+
+  guardarPuntos($_SESSION['username'], $puntuacion);
+
   unset($_SESSION['puntuacion']);
   unset($_SESSION['localizaciones']);
 

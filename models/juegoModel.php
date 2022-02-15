@@ -86,6 +86,21 @@
         $stmt = null;
 
         return $ubicacion;
-    }  
+    }
+
+    /**
+     * Almacena los puntos obtenidos en la tabla de puntuaciones.
+     */
+    function guardarPuntos($nombre, $puntuacion) {
+
+        $db = getConnection();
+        $sqlQuery = "INSERT INTO puntuaciones (username, puntuacion) VALUE (?,?)";
+        $stmt = $db->prepare($sqlQuery);
+        $stmt->bindParam(1, $nombre);
+        $stmt->bindParam(2, $puntuacion);
+
+        $stmt->execute();
+
+    }
 
 ?>
