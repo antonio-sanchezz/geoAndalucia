@@ -33,7 +33,7 @@
     </div>
     <div class="modalCiudad">
         <div id="mapaCiudad">
-            <img id="mapaCiudadOpen" src="" alt="mapaCiudad">
+            <img id="mapaCiudadOpen" alt="mapaCiudad">
             <span class="closeCiudad">&times;</span>
             <input type="button" id="confirmarUbicacion" value="Confirmar"/>
         </div>
