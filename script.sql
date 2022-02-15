@@ -1,12 +1,6 @@
 CREATE DATABASE geoandalucia;
 USE geoandalucia;
 
-CREATE TABLE usuarios (
-    id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
-    username VARCHAR(50),
-    password VARCHAR(250) NOT NULL
-);
-
 CREATE TABLE ubicaciones (
     id INT NOT NULL AUTO_INCREMENT PRIMARY KEY,
     nombre VARCHAR(50) NOT NULL,
@@ -16,9 +10,8 @@ CREATE TABLE ubicaciones (
 );
 
 CREATE TABLE puntuaciones (
-    idUsuario INT NOT NULL,
-    puntuacion INT,
-    FOREIGN KEY (idUsuario) REFERENCES usuarios(id)
+    username VARCHAR(50) NOT NULL,
+    puntuacion INT
 );
 
 /* Contraseña de los usuarios "developer" */
@@ -48,7 +41,7 @@ INSERT INTO ubicaciones VALUES(19, "", "", "", "");
 INSERT INTO ubicaciones VALUES(20, "", "", "", "");
 
 /* Puntuaciones de prueba */
-INSERT INTO puntuaciones (idUsuario, puntuacion) VALUES
-(1, 1000),
-(1, 500),
-(2, 3500);
+INSERT INTO puntuaciones (username, puntuacion) VALUES
+("admin", 1000),
+("antonio", 500),
+("admin", 3500);
