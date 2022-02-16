@@ -37,7 +37,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT username, idUsuario, MAX(puntuacion) FROM puntuaciones AS punt INNER JOIN usuarios AS user WHERE user.id = punt.idUsuario GROUP BY idUsuario";
+            $sqlQuery = "SELECT username, MAX(puntuacion) FROM puntuaciones GROUP BY username LIMIT 5";
             $stmt = $db->query($sqlQuery);
             $puntuaciones = $stmt->fetchAll();
 
@@ -86,6 +86,21 @@
         $stmt = null;
 
         return $ubicacion;
-    }  
+    }
+
+    /**
+     * Almacena los puntos obtenidos en la tabla de puntuaciones.
+     */
+    function guardarPuntos($nombre, $puntuacion) {
+
+        $db = getConnection();
+        $sqlQuery = "INSERT INTO puntuaciones (username, puntuacion) VALUE (?,?)";
+        $stmt = $db->prepare($sqlQuery);
+        $stmt->bindParam(1, $nombre);
+        $stmt->bindParam(2, $puntuacion);
+
+        $stmt->execute();
+
+    }
 
 ?>

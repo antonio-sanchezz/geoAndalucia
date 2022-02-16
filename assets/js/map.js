@@ -4,9 +4,9 @@ $(function(){
         $(".modal").show();
 
         // Averiguar coordenadas en px.
-        $(document).mousemove(function(event){
+       /*$(document).click(function(event){
             console.log(event.pageX + ", " + event.pageY);
-        });
+        });*/
     });
 
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
@@ -42,6 +42,7 @@ $(function(){
         let elementIdCiudad = $(this).attr("id");
         let imagenCiudad = $("#mapaCiudadOpen");
         imagenCiudad.attr('src', 'assets/images/' + elementIdCiudad + 'Map.png');
+        imagenCiudad.attr('class', elementIdCiudad);
         $(".modalCiudad").show();
     });
 
@@ -59,22 +60,30 @@ $(function(){
 
         // Obtenemos las coordendas y el nombre de la ciudad.
         var coordenadas = e.pageX + ',' + e.pageY;
-        var ciudad = "";
+        var ciudad = $("#mapaCiudadOpen").attr('class');
+        console.log(coordenadas + " " + ciudad);
 
         // Confirmamos que es la ubicacion seleccionada.
         $("#confirmarUbicacion").click(function() {
             // Obtenemos la puntuación de la partida actual.
             $.ajax({
                 data: {
-                    'coordenadas':coordenadas,
-                    'ciudad':ciudad
+                    coordenadas:coordenadas,
+                    ciudad:ciudad
                 },
+                dataType: 'text',
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
                 success: function(result) {
-                    var solucion = JSON.parse(result);
+                    $(".modalTerminado").show();
+                    $("#puntuacionObtenida").text(result);
                 }
             });
+        });
+
+        // Pasamos al siguiente nivel.
+        $("#continuar").click(function() {
+            $(location).attr('href','?controller=juego&action=nextJuego');
         });
 
     });

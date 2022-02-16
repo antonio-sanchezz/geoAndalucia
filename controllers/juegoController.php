@@ -22,6 +22,9 @@ function jugar()
   require './models/juegoModel.php';
 
   if (isset($_SESSION['localizaciones'])) {
+    if ($_SESSION['localizaciones'] == []) {
+      header("Location: ?controller=juego&action=terminar");
+    }
   } else {
     if (!isset($_SESSION['puntuacion'])) {
       $_SESSION['puntuacion'] = 0;
@@ -58,7 +61,7 @@ function nextJuego()
   $localizaciones = $_SESSION['localizaciones'];
   array_shift($localizaciones);
   $_SESSION['localizaciones'] = $localizaciones;
-  header("?controller=juego&action=jugar");
+  header("Location: ?controller=juego&action=jugar");
 }
 
 
@@ -71,29 +74,53 @@ function nextJuego()
 function calcularDistancia()
 {
 
-  $coordendasMarcadas = $_POST['coordendas'];
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
+
+  $coordendasMarcadas = $_POST['coordenadas'];
   $ciudad = $_POST['ciudad'];
-  $id = $_SESSION['localizaciones'][0]['id'];
+  $id = $_SESSION['localizaciones'][0];
+  // En el caso de que la ciudad no sea la correcta serán 0 puntos.
+  $totalPuntos = 0;
 
   // Calculo de distancia entre los puntos.
   $monumentoActual = obtenerLocalizacion($id);
 
-  $puntoMonumentoActual = $monumentoActual['pxCoords'];
+  // Coordenadas de ambos puntos.
+  $puntoMonumentoActual = $monumentoActual[0]['pxCoords'];
   $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
 
   // Distancia total del monumento al punto marcado.
-  $totalDistancia = sqrt(($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + ($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
+  $totalDistancia = sqrt(abs($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + abs($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
-  if ($ciudad == $monumentoActual['ciudad']) {
+  if (strtoupper($ciudad) == strtoupper($monumentoActual[0]['ciudad'])) {
     // Asignación de puntos dependiendo de la distancia a la que esté.
-    $totalPuntos = 5000 - ($totalDistancia * 2);
-  } else {
-    // En el caso de que la ciudad no sea la correcta serán 0 puntos.
-    $totalPuntos = 0;
+    $totalPuntos = 5000 - ($totalDistancia * 150);
   }
 
   // Sumamos al total de la partida los puntos obtenidos.
-  $_SESSION['puntuacion'] += $totalPuntos;
+  $_SESSION['puntuacion'] += round((int)$totalPuntos, 0);
 
+  echo round($totalPuntos, 0);
+
+}
+
+/**
+ * Pantalla final del juego.
+ */
+function terminar() {
+
+  // Se incluye el modelo.
+  require './models/juegoModel.php';
+
+  $puntuacion = $_SESSION['puntuacion'];
+
+  guardarPuntos($_SESSION['username'], $puntuacion);
+
+  unset($_SESSION['puntuacion']);
+  unset($_SESSION['localizaciones']);
+
+  // Se incluye la vista para finalizar el juego.
+  include './views/juegoFinal.php';
 }
