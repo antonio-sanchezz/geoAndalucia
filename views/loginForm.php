@@ -14,43 +14,33 @@
 </head>
 
 <body>
-
-<div class="position-relative separador">
-
-<div class="position-absolute top-50 start-50 translate-middle text-center">
-
-<form action="?controller=usuarios&action=formLogin" method="POST">
-        <div class="mb-3">
-            <label for="username" class="form-label ">¿Cómo te quieres llamar?</label>
-            <input type="text" class="form-control" id="username" name="username">
-        </div>
-        
-
-        <button type="submit" class="btn btn-primary">Entrar</button>    
-    </form>
-</div>
-</div>
-<footer class="mt-auto">
-<div class="footer-wrapper mt120 bg3">
-    <div class="content">
-        <div class="row pb20 ta-c">
-            <div class="fw-col sm-order2">
-                <div>
-            
-            <div class="fw-col sm-order1 pv20">
-                <img class="logo" src="./assets/images/mapa.png">
-                <p class="mt10 mb20">© GeoAndalucía. Esta página web es la única oficial de los alumnos de 2ºDAW. Todos los derechos reservados.</p>
-                <p>Esclava del señor, 12 41012 Sevilla</p>
-                <p><a style="text-decoration: none; color: white;" href="mailto:in%66o%40%72ea%6cbe%74%69%73b%61%6co%6d%70ie%2ees">info@iespoligonosur.org</a></p>
-                
-            </div>
+    <div class="position-relative separador">
+        <div class="position-absolute top-50 start-50 translate-middle text-center">
+            <form action="?controller=usuarios&action=formLogin" method="POST">
+                <div class="mb-3">
+                    <label for="username" class="form-label ">¿Cómo te quieres llamar?</label>
+                    <input type="text" class="form-control" id="username" name="username">
+                </div>
+                <button type="submit" class="btn btn-primary">Entrar</button>    
+            </form>
         </div>
     </div>
-</div>
-</div>
-</div>
-</footer>
-
+    <footer class="mt-auto">
+        <div class="footer-wrapper mt120 bg3">
+            <div class="content">
+                <div class="row pb20 ta-c">
+                    <div class="fw-col sm-order2">
+                        <div class="fw-col sm-order1 pv20">
+                            <img class="logo" src="./assets/images/mapa.png">
+                            <p class="mt10 mb20">© GeoAndalucía. Esta página web es la única oficial de los alumnos de 2ºDAW. Todos los derechos reservados.</p>
+                            <p>Esclava del señor, 12 41012 Sevilla</p>
+                            <p><a style="text-decoration: none; color: white;" href="mailto:in%66o%40%72ea%6cbe%74%69%73b%61%6co%6d%70ie%2ees">info@iespoligonosur.org</a></p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
 </body>
 
 </html>
