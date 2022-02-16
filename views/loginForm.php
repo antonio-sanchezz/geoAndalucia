@@ -26,13 +26,8 @@
         </div>
         
 
-        <button type="submit" class="btn btn-primary">Entrar</button>
-        
+        <button type="submit" class="btn btn-primary">Entrar</button>    
     </form>
-    <br><br><br>
-    <br><br><br>
-    <br><br><br>
-    <br><br><br>
 </div>
 </div>
 <footer class="mt-auto">
