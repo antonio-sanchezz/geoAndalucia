@@ -102,7 +102,9 @@ function calcularDistancia()
   // Sumamos al total de la partida los puntos obtenidos.
   $_SESSION['puntuacion'] += round((int)$totalPuntos, 0);
 
-  echo round($totalPuntos, 0);
+  $data = ['puntuacion' => round($totalPuntos, 0), 'xCoords' => $puntoMonumentoActual[0], 'yCoords' => $puntoMonumentoActual[1]];
+  
+  echo json_encode($data);
 
 }
 

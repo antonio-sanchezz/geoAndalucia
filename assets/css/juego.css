@@ -45,7 +45,7 @@ iframe {
     text-decoration: none;
     cursor: pointer;
 }
-#nombreCiudad {
+#nombreCiudad, #imagenResult {
     position: absolute;
     text-align: center;
     z-index: 2;

@@ -11,6 +11,7 @@
 </head>
 <body>
     <img class="nombreCiudad" id="nombreCiudad"/>
+    <img class="imagenResult" id="imagenResult" src="assets/images/placeholder-blue.png"/>
     <div class="top-bar"><p>¿Dónde está este monumento?</p><p id="puntuacion"><?php echo $_SESSION['puntuacion'];?></p></div>
     <iframe src="https://www.google.com/maps/embed?pb=<?php echo $datosLugar[0]['googleCoords']; ?>" height="450" style="border:0;"></iframe>
     <button id="adivinar" type="button">Adivinar</button> 
@@ -39,6 +40,8 @@
             <div class="modalTerminado">
                 <div id="puntuacionMapa">
                     Has conseguido: <p id="puntuacionObtenida"></p> puntos
+                    <p id="monumento"></p>
+                    <p id="ciudad"></p>
                     <input id="continuar" type="button" value="Continuar">
                 </div>
             </div>
