@@ -13,7 +13,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT * FROM puntuaciones WHERE username = ? LIMIT 5";
+            $sqlQuery = "SELECT * FROM puntuaciones WHERE username = ? ORDER BY puntuacion DESC LIMIT 5";
             $stmt = $db->prepare($sqlQuery);
             $stmt->bindParam(1, $username);
 

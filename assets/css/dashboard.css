@@ -1,0 +1,31 @@
+.carousel-item img {
+    height: 400px;
+}
+
+.play {
+    text-align: center;
+}
+
+.play img {
+    width: 128px;
+    height: 128px;
+}
+
+.play a {
+    text-decoration: none;
+}
+
+.play p {
+    font-weight: bold;
+    font-size: 20px;
+    color: #007932;
+}
+
+.header, .header a {
+    background: #007932;
+    color: white;
+}
+
+.header a:hover {
+    color: white;
+}
