@@ -24,9 +24,13 @@
 .header, .header a {
     background: #007932;
     color: white;
-    font-size: 20px;
+    font-size: 40px;
 }
 
 .header a:hover {
     color: white;
+}
+
+.play-game {
+    border-bottom: 1px solid #007932;
 }

@@ -48,7 +48,17 @@
                 </button>
               </div>
         </div>
-        <div class="row mt-4">
+        <div class="row play mt-4">
+            <div class="col-12">
+                <div class="play-game">
+                    <a href="?controller=juego&action=jugar">
+                        <img src="assets/images/location.png"/><br>
+                        <p>JUGAR</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-5">
             <div class="col-6">
                 <h2>Tus puntuaciones</h2>
                 <table class="table table-success table-striped">
@@ -93,14 +103,6 @@
                     ?>
                 </table>
             </div>           
-        </div>
-        <div class="row play mt-4">
-            <div class="col-12">
-                <a href="?controller=juego&action=jugar">
-                    <img src="assets/images/location.png"/><br>
-                    <p>JUGAR</p>
-                </a>
-            </div>
         </div>
     </div>
 </body>
