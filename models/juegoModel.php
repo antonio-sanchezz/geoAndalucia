@@ -13,7 +13,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT * FROM puntuaciones WHERE username = ?";
+            $sqlQuery = "SELECT * FROM puntuaciones WHERE username = ? ORDER BY puntuacion DESC LIMIT 5";
             $stmt = $db->prepare($sqlQuery);
             $stmt->bindParam(1, $username);
 
@@ -37,7 +37,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT username, MAX(puntuacion) FROM puntuaciones GROUP BY username LIMIT 5";
+            $sqlQuery = "SELECT username, MAX(puntuacion) FROM puntuaciones GROUP BY username ORDER BY MAX(puntuacion) DESC LIMIT 5";
             $stmt = $db->query($sqlQuery);
             $puntuaciones = $stmt->fetchAll();
 
@@ -77,7 +77,7 @@
 
             $stmt->execute();
 
-            $ubicacion = $stmt->fetchAll();
+            $ubicacion = $stmt->fetch();
 
         } catch (PDOException $e) {
             $e->getMessage();

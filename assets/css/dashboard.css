@@ -1,0 +1,36 @@
+.carousel-item img {
+    height: 400px;
+}
+
+.play {
+    text-align: center;
+}
+
+.play img {
+    width: 128px;
+    height: 128px;
+}
+
+.play a {
+    text-decoration: none;
+}
+
+.play p {
+    font-weight: bold;
+    font-size: 25px;
+    color: #007932;
+}
+
+.header, .header a {
+    background: #007932;
+    color: white;
+    font-size: 40px;
+}
+
+.header a:hover {
+    color: white;
+}
+
+.play-game {
+    border-bottom: 1px solid #007932;
+}

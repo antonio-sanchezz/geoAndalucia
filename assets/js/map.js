@@ -75,8 +75,18 @@ $(function(){
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
                 success: function(result) {
+                    var obj = JSON.parse(result);
+                    let imagenResult = $("#imagenResult");
+                    imagenResult.show();
+                    imagenResult.css({
+                        left: obj['xCoords'] + "px",
+                        top: obj['yCoords'] + "px"
+                    });
                     $(".modalTerminado").show();
-                    $("#puntuacionObtenida").text(result);
+                    $("#puntuacionObtenida").text(obj['puntuacion'] + " puntos");
+                    $("#monumento").text(obj['monumento']);
+                    $("#ciudad").text(obj['lugar']);
+                    $("#enlace").attr('href', obj['enlace']);
                 }
             });
         });
