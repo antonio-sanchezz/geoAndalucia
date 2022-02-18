@@ -10,3 +10,18 @@
     background-color: #007932 !important;
     border-color: #007932 !important;
 }
+
+
+.padre {
+  background: white;
+  
+  /*IMPORTANTE*/
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.hijo {
+  background: white;
+ 
+}

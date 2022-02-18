@@ -12,15 +12,21 @@
 </head>
 <body>
 
-    <div class="centrado">
-        <p class="h2 p">Enhorabuena a obtenido una puntuación total de: <?php echo $puntuacion;?></p>
-        <a href="?controller=juego&action=dashBoard">
+
+    
+    <div class="px-4 py-5 my-5 text-center">
+    
+    <img class="d-block mx-auto mb-4" src="./assets/images/mapa.png" alt="" width="72" height="57">
+    <h1 class="display-5 fw-bold">Puntuación</h1>
+    <div class="col-lg-6 mx-auto">
+      <p class="lead mb-4 p">Enhorabuena a obtenido una puntuación total de: <b><?php echo $puntuacion;?></b></p>
+      <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
+      <a href="?controller=juego&action=dashBoard">
         <button type="submit" class="btn btn-primary">Volver</button>
         </a>
-
+      </div>
     </div>
-    
-
+  </div>
 
     
 </body>
