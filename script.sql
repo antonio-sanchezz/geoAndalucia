@@ -6,7 +6,8 @@ CREATE TABLE ubicaciones (
     nombre VARCHAR(50) NOT NULL,
     ciudad VARCHAR(50) NOT NULL,
     pxCoords VARCHAR(50) NOT NULL,
-    googleCoords VARCHAR(250) NOT NULL
+    googleCoords VARCHAR(250) NOT NULL,
+    info VARCHAR(250) NOT NULL
 );
 
 CREATE TABLE puntuaciones (

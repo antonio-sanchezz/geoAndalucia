@@ -84,9 +84,9 @@ $(function(){
                     });
                     $(".modalTerminado").show();
                     $("#puntuacionObtenida").text(obj['puntuacion']);
-                    //$("#monumento").text(obj['monumento']);
-                    //$("#ciudad").text(obj['lugar']);
-
+                    $("#monumento").text(obj['monumento']);
+                    $("#ciudad").text(obj['lugar']);
+                    $("#enlace").attr('href', obj['enlace']);
                 }
             });
         });

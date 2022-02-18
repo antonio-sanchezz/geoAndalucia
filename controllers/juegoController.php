@@ -87,14 +87,14 @@ function calcularDistancia()
   $monumentoActual = obtenerLocalizacion($id);
 
   // Coordenadas de ambos puntos.
-  $puntoMonumentoActual = $monumentoActual[0]['pxCoords'];
+  $puntoMonumentoActual = $monumentoActual['pxCoords'];
   $puntoMonumentoActual = explode(",", $puntoMonumentoActual);
   $coordendasMarcadas = explode(",", $coordendasMarcadas);
 
   // Distancia total del monumento al punto marcado.
   $totalDistancia = sqrt(abs($puntoMonumentoActual[0] - $coordendasMarcadas[0]) + abs($puntoMonumentoActual[1] - $coordendasMarcadas[1]));
 
-  if (strtoupper($ciudad) == strtoupper($monumentoActual[0]['ciudad'])) {
+  if (strtoupper($ciudad) == strtoupper($monumentoActual['ciudad'])) {
     // Asignación de puntos dependiendo de la distancia a la que esté.
     $totalPuntos = 5000 - ($totalDistancia * 150);
   }
@@ -102,11 +102,12 @@ function calcularDistancia()
   // Sumamos al total de la partida los puntos obtenidos.
   $_SESSION['puntuacion'] += round((int)$totalPuntos, 0);
 
-  $data = ['puntuacion' => round($totalPuntos, 0), 'xCoords' => $puntoMonumentoActual[0], 'yCoords' => $puntoMonumentoActual[1]];
+  $data = ['puntuacion' => round($totalPuntos, 0), 'xCoords' => $puntoMonumentoActual[0], 'yCoords' => $puntoMonumentoActual[1], 'monumento' => $monumentoActual["nombre"], 'lugar' => $monumentoActual['ciudad'], 'enlace' => $monumentoActual['info']];
   
   echo json_encode($data);
 
 }
+
 
 /**
  * Pantalla final del juego.

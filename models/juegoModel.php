@@ -77,7 +77,7 @@
 
             $stmt->execute();
 
-            $ubicacion = $stmt->fetchAll();
+            $ubicacion = $stmt->fetch();
 
         } catch (PDOException $e) {
             $e->getMessage();
