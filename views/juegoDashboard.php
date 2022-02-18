@@ -12,11 +12,11 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row header">
-            <div class="col-6">
+        <div class="row header p-2 mb-3">
+            <div class="col-11">
                 <h1>Hola <?php echo $_SESSION['username']?></h1>
             </div>
-            <div class="col-6">
+            <div class="col-1">
                 <a href="?controller=usuarios&action=cerrarSesion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>
@@ -48,7 +48,17 @@
                 </button>
               </div>
         </div>
-        <div class="row mt-4">
+        <div class="row play mt-4">
+            <div class="col-12">
+                <div class="play-game">
+                    <a href="?controller=juego&action=jugar">
+                        <img src="assets/images/location.png"/><br>
+                        <p>JUGAR</p>
+                    </a>
+                </div>
+            </div>
+        </div>
+        <div class="row mt-4 mb-5">
             <div class="col-6">
                 <h2>Tus puntuaciones</h2>
                 <table class="table table-success table-striped">
@@ -93,14 +103,6 @@
                     ?>
                 </table>
             </div>           
-        </div>
-        <div class="row play mt-4">
-            <div class="col-12">
-                <a href="?controller=juego&action=jugar">
-                    <img src="assets/images/location.png"/><br>
-                    <p>JUGAR</p>
-                </a>
-            </div>
         </div>
     </div>
 </body>
