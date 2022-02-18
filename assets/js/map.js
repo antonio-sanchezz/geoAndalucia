@@ -83,7 +83,7 @@ $(function(){
                         top: obj['yCoords'] + "px"
                     });
                     $(".modalTerminado").show();
-                    $("#puntuacionObtenida").text(obj['puntuacion']);
+                    $("#puntuacionObtenida").text(obj['puntuacion'] + " puntos");
                     $("#monumento").text(obj['monumento']);
                     $("#ciudad").text(obj['lugar']);
                     $("#enlace").attr('href', obj['enlace']);
