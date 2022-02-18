@@ -19,7 +19,7 @@
             <form action="?controller=usuarios&action=formLogin" method="POST">
                 <div class="mb-3">
                     <label for="username" class="form-label ">¿Cómo te quieres llamar?</label>
-                    <input type="text" class="form-control" id="username" name="username">
+                    <input type="text" class="form-control" id="username" name="username" required>
                 </div>
                 <button type="submit" class="btn btn-primary">Entrar</button>    
             </form>

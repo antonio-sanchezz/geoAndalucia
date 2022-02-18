@@ -55,3 +55,7 @@ body .bg3 {
     width: 100px !important;
     height: 100px !important;
 }
+
+body {
+    background-image: url("../images/background.jpg");
+}
