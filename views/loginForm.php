@@ -17,7 +17,7 @@
     <div class="position-relative separador">
         <div class="position-absolute top-50 start-50 translate-middle text-center">
             <form action="?controller=usuarios&action=formLogin" method="POST">
-                <div class="mb-3">
+                <div >
                     <label for="username" class="form-label ">¿Cómo te quieres llamar?</label>
                     <input type="text" class="form-control" id="username" name="username" required>
                 </div>
@@ -28,7 +28,7 @@
     <footer class="mt-auto">
         <div class="footer-wrapper mt120 bg3">
             <div class="content">
-                <div class="row pb20 ta-c">
+                <div class="row pb20 ta-c me-0">
                     <div class="fw-col sm-order2">
                         <div class="fw-col sm-order1 pv20">
                             <img class="logo" src="./assets/images/mapa.png">
