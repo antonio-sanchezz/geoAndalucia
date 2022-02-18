@@ -12,11 +12,11 @@
 </head>
 <body>
     <div class="container-fluid">
-        <div class="row header">
-            <div class="col-6">
+        <div class="row header p-2 mb-3">
+            <div class="col-11">
                 <h1>Hola <?php echo $_SESSION['username']?></h1>
             </div>
-            <div class="col-6">
+            <div class="col-1">
                 <a href="?controller=usuarios&action=cerrarSesion"><i class="fa-solid fa-arrow-right-from-bracket"></i></a>
             </div>
         </div>

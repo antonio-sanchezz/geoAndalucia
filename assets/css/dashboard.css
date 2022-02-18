@@ -17,13 +17,14 @@
 
 .play p {
     font-weight: bold;
-    font-size: 20px;
+    font-size: 25px;
     color: #007932;
 }
 
 .header, .header a {
     background: #007932;
     color: white;
+    font-size: 20px;
 }
 
 .header a:hover {

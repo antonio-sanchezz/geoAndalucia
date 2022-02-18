@@ -37,7 +37,7 @@
         try {
 
             $db = getConnection();
-            $sqlQuery = "SELECT username, MAX(puntuacion) FROM puntuaciones GROUP BY username LIMIT 5";
+            $sqlQuery = "SELECT username, MAX(puntuacion) FROM puntuaciones GROUP BY username ORDER BY MAX(puntuacion) DESC LIMIT 5";
             $stmt = $db->query($sqlQuery);
             $puntuaciones = $stmt->fetchAll();
 
