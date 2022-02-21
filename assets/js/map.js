@@ -2,11 +2,6 @@ $(function(){
 
     $("#adivinar").click(function() {
         $(".modal").show();
-
-        // Averiguar coordenadas en px.
-       /*$(document).click(function(event){
-            console.log(event.pageX + ", " + event.pageY);
-        });*/
     });
 
     // Ocultamos la ventana modal y el nombre de la ciudad del mapa de Andalucia.
@@ -61,7 +56,6 @@ $(function(){
         // Obtenemos las coordendas y el nombre de la ciudad.
         var coordenadas = e.pageX + ',' + e.pageY;
         var ciudad = $("#mapaCiudadOpen").attr('class');
-        console.log(coordenadas + " " + ciudad);
 
         // Confirmamos que es la ubicacion seleccionada.
         $("#confirmarUbicacion").click(function() {
@@ -75,13 +69,16 @@ $(function(){
                 type: 'post',
                 url: "?controller=juego&action=calcularDistancia",
                 success: function(result) {
+                    
                     var obj = JSON.parse(result);
-                    let imagenResult = $("#imagenResult");
-                    imagenResult.show();
-                    imagenResult.css({
-                        left: obj['xCoords'] + "px",
-                        top: obj['yCoords'] + "px"
-                    });
+                    if (ciudad.toLowerCase() == obj['lugar'].toLowerCase()) {
+                        let imagenResult = $("#imagenResult");
+                        imagenResult.show();
+                        imagenResult.css({
+                            left: obj['xCoords'] + "px",
+                            top: obj['yCoords'] + "px"
+                        });
+                    }
                     $(".modalTerminado").show();
                     $("#puntuacionObtenida").text(obj['puntuacion'] + " puntos");
                     $("#monumento").text(obj['monumento']);
