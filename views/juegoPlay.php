@@ -24,10 +24,10 @@
     </div>
   
         
-
+    <div class="contenedor">
     <div class="modal">
         <div id="mapaAndalucia">
-            <img src="assets/images/mapaAndalucia.png" alt="mapaAndalucia" usemap="#mapaAndalucia">
+            <img class="mx-auto d-block" src="assets/images/mapaAndalucia.png" alt="mapaAndalucia" usemap="#mapaAndalucia">
             <map name="mapaAndalucia">
                 <area id="huelva" shape="poly" coords="99,107,19,210,32,270,162,338,162,206,146,204,153,186,192,153,100,109,99,107">
                 <area id="sevilla" shape="poly" coords="166,324,385,267,343,193,301,213,292,198,304,193,271,124,253,115,229,129,193,155,188,183,156,196,180,234,169,313,166,324">
@@ -40,6 +40,7 @@
             </map>
             <span class="close">&times;</span>
         </div>
+    </div>
     </div>
     <div class="modalCiudad">
         <div id="mapaCiudad">
@@ -58,7 +59,7 @@
 
                     <p id="monumento"></p>
                     <p id="ciudad"></p>
-                    <a id="enlace" target="_blank">Info</a>
+                    <button class="borde btn btn-primary"><a id="enlace" target="_blank">Info</a></button>
                     <button id="continuar" class=" borde btn btn-primary " type="button">Continuar</button>
                     
                 </div>
