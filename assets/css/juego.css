@@ -1,3 +1,9 @@
+a:link,
+a:visited,
+a:active {
+    text-decoration: none;
+    
+}
 iframe {
     width: 100%;
     height: 700px;
@@ -121,7 +127,21 @@ body .bg3 {
 }
 
 .borde{
-    background-color: white !important;
-    border-color: #007932 !important;
-    color: #007932;
+    
+    border-color: white !important;
+    background-color: #007932;
+}
+.borde:hover{
+    border-color: white !important;
+    background-color: white;
+    
+}
+
+button a{
+    color: white;
+}
+
+button a:hover{
+    color: white;
+    
 }
