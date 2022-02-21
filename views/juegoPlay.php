@@ -53,7 +53,9 @@
 
             <div class="modalTerminado">
                 <div id="puntuacionMapa" class="puntuacionMapa">
+
                     Has conseguido: <p id="puntuacionObtenida"></p>
+
                     <p id="monumento"></p>
                     <p id="ciudad"></p>
                     <a id="enlace" target="_blank">Info</a>
